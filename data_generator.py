@@ -30,12 +30,19 @@ class Parameter:
             import sys
             print "Unexpected error:", sys.exc_info()[0]
             raise
-        else:
-            pass
-        finally:
-            pass
 
-
+##
+## @brief      { function_description }
+##
+## @param      params  The params
+##
+## @return     { description_of_the_return_value }
+##
+def initializePoints(params):
+    try:
+        return 0
+    except Exception, e:
+        raise e
 
 
 
