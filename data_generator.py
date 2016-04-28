@@ -1,28 +1,41 @@
-#Class to store pameter
+##
+## @brief      { class_description }
+##
 class Parameter:
     def __init__(self):
         self.velocity = 0
         self.minDistance = 0
         self.numObjects = 0
-# 
-def readFromXml(filename):
-    import xml.etree.ElementTree as ET
-    tree = ET.parse(filename)
-    root = tree.getroot()
-    
-    velocity = float(root.find('velocity').text)
-    numObjects = int(root.find('num_objects').text)
-    minDistance = float(root.find('min_distance').text)
+        self.numFrames = 0
+    ##
+    ## @brief      { Read parameter from XML and save to object attribute }
+    ##
+    ## @param      self      The object.
+    ## @param      filename  The XML file name
+    ##
+    ## @return     { description_of_the_return_value }
+    ##
+    def readParametersFromXml(self, filename):
+        import xml.etree.ElementTree as ET
+          
+        try:
+            tree = ET.parse(filename)
+            root = tree.getroot()
+      
+            self.velocity = float(root.find('velocity').text)
+            self.minDistance = int(root.find('num_objects').text)
+            self.numObjects = float(root.find('min_distance').text)
+            self.numFrames = int(root.find('num_frames').text)
+        except Exception, e:
+            import sys
+            print "Unexpected error:", sys.exc_info()[0]
+            raise
+        else:
+            pass
+        finally:
+            pass
 
-    result = Parameter()
-    result.velocity = velocity
-    result.minDistance = minDistance
-    result.numObjects = numObjects
 
-    return result
 
-if __name__ == "__main__":
-    params = readFromXml('country.xml')
-    print params.velocity, params.numObjects, params.minDistance
 
 
