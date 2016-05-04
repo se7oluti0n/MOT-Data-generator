@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data>
 	<num_objects>4</num_objects>
-	<num_frames>1000</num_frames>
+	<num_frames>20</num_frames>
 	<velocity>0.75</velocity>
-	<min_distance>3</min_distance>
+	<min_distance>0.1</min_distance>
 </data>
